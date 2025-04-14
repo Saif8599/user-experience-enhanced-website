@@ -1,0 +1,18 @@
+{% render 'partials/head.liquid'
+  , title: 'Bieb in Bloei' %}
+
+{% include 'partials/navbar.liquid' 
+  , title: 'Stekjes' %}
+
+
+{% include 'partials/stekjes-collection.liquid',
+ %}
+
+{% comment %} 
+ <details>
+  <summary>Data</summary>
+<pre>{{ stekjes | json : 4 }}</pre>
+</details>
+{% endcomment %}
+
+{% render 'partials/foot.liquid' %}

@@ -1,0 +1,136 @@
+<section class="stekjes-collection">
+  <h2 class="stekjes-collection-title">Vind jouw favoriet in onze collectie geliefde stekjes</h2>
+
+  <div class="stekjes-collection-grid">
+
+    {% for stekje in stekjes %}
+      <article class="stekje-item">
+        <h3 class="stekje-item-title">{{ stekje.naam }}</h3>
+        <div class="stekje-item-bg">
+          <img
+            src="https://fdnd-agency.directus.app/assets/{{ stekje.foto }}"
+            alt="{{ stekje.naam }}"
+            loading="lazy">
+        </div>
+        <a href="stekje/{{ stekje.id }}" class="stekje-item-link">Bekijk stekje</a>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+  .stekjes-collection {
+    padding: 1rem;
+    max-width: 1400px;
+    margin: 0 auto 5em;
+  }
+
+  .stekjes-collection-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #2a5c45;
+  }
+
+  .stekjes-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stekje-item {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    box-shadow: 0 0 10px black;
+    transition: transform 0.3s ease
+    , box-shadow 0.3s ease;
+
+
+     &:hover {
+      box-shadow: 0 0 50px #2a5c45;
+      transform: translateY(-10px);
+    }
+  }
+
+  .stekje-item-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .stekje-item-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  .stekje-item-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .stekje-item-title {
+    padding: 10px;
+    margin: 10px;
+    align-self: flex-start;
+    font-size: 1.2rem;
+    color: #2a5c45;
+    background-color: white;
+    text-align: left;
+    border-radius: 15px;
+  }
+
+  .stekje-item-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #2a5c45;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .stekje-item-link:hover {
+    background: #1e4634;
+  }
+
+  @media (min-width: 600px) {
+    .stekjes-collection-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stekjes-collection-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .stekje-item {
+      height: 600px;
+    }
+    .stekjes-collection-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 900px) {
+    .stekjes-collection-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

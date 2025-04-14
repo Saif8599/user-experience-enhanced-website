@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* @font-face (typografie) */
+@font-face {
+  font-family: "Poppins-Black";
+  src: url(../fonts/Poppins-Black.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url(../fonts/Poppins-Bold.ttf) format("truetype"),
+    url(../fonts/Poppins-Bold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Poppins-Medium";
+  src: url(../fonts/Poppins/Poppins-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url(../fonts/Poppins-Regular.ttf) format("truetype");
+}
+
+body {
+  /* Colors */
+  --primary-background-color: #f9e9c2; /* Beige */
+  --secondary-background-color: #4e7141; /* Light Green */
+  --third-background-color: #3c593e; /* Dark Green */
+  --primary-highlight-color: #ff8d06; /* Orange */
+  --secondary-highlight-color: #491b02; /* Brown */
+  --primary-text-color: #fefefe; /* Off-White */
+  --secondary-text-color: #2c402d; /* Dark Green */
+  --error-color: #ff0000; /* Red */
+
+  /* Fonts */
+  --poppins: "Poppins-regular", sans-serif;
+
+  /* Typography */
+  --font-size-desktop-xl: 3em;
+  --font-size-desktop-l: 2em;
+  --font-size-desktop-m: 1.3em;
+  --font-size-desktop-s: 1.2em;
+  --font-size-mobile-xl: 2em;
+  --font-size-mobile-l: 1.2em;
+  --font-size-mobile-m: 1em;
+  --font-size-mobile-s: 0.8em;
+
+  /* General Styles */
+  font-family: var(--poppins);
+  color: var(--secondary-text-color);
+  background-color: var(--primary-background-color);
+  line-height: 1.4;
+  font-size: var(--font-size-desktop-s);
+  --image-gradient: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--poppins);
+  color: var(--secondary-text-color);
+  margin: 0.5em 0;
+}
+
+h1 {
+  font-size: var(--font-size-mobile-xl);
+  @media (min-width: 850px) {
+    font-size: var(--font-size-desktop-xl);
+  }
+}
+
+h2 {
+  font-size: var(--font-size-mobile-l);
+  @media (min-width: 850px) {
+    font-size: var(--font-size-desktop-l);
+  }
+}
+
+h3 {
+  font-size: var(--font-size-mobile-m);
+  @media (min-width: 850px) {
+    font-size: var(--font-size-desktop-m);
+  }
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+  border-radius: 0.6em;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: var(--primary-highlight-color);
+  }
+}
+
+/* Buttons */
+button,
+.button {
+  padding: 15px 40px;
+  background-color: var(--secondary-background-color);
+  color: var(--primary-text-color);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--primary-highlight-color);
+  }
+}
+
+.cta-btn {
+  background-color: var(--secondary-highlight-color);
+
+  &:hover {
+    background-color: var(--primary-background-color);
+    color: var(--secondary-highlight-color);
+  }
+}
+
+/* Inputs */
+input[type="text"],
+input[type="search"] {
+  width: 100%;
+  padding: 0.8em 1em;
+  border: none;
+  border-radius: var(--rounded);
+  background-color: var(--primary-text-color);
+  color: var(--third-background-color);
+  font-size: var(--font-size-desktop-s);
+}
+
+input[type="submit"] {
+  background-color: var(--secondary-background-color);
+  color: var(--primary-text-color);
+  padding: 0.7em 1.4em;
+  border: none;
+  border-radius: var(--rounded);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--primary-highlight-color);
+    transform: scale(1.05);
+  }
+}

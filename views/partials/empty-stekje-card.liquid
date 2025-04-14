@@ -1,0 +1,62 @@
+<section class="empty-state">
+  <img
+    src="../assets/harry-ass.png"
+    alt="Geen stekjes gevonden"
+    class="empty-state-image">
+  <h3 class="empty-state-title">Geen stekjes gevonden</h3>
+  <p class="empty-state-description">Het lijkt erop dat er nog geen stekjes zijn om weer te geven. Probeer een andere stekje te zoeken.</p>
+</section>
+
+<style>
+  .empty-state {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8f8f8;
+    border-radius: 8px;
+    margin: 1rem;
+    width: calc(100% - 2rem);
+    height: 50vh;
+  }
+
+  .empty-state-image {
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 1rem;
+    opacity: 0.9;
+  }
+
+  .empty-state-title {
+    color: #2e7d32;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .empty-state-description {
+    color: #666;
+    margin: 0 auto 1rem;
+    max-width: 300px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  @media (min-width: 768px) {
+    .empty-state {
+      max-width: 400px;
+      margin: 2rem auto;
+      padding: 2rem;
+    }
+
+    .empty-state-image {
+      max-width: 200px;
+    }
+
+    .empty-state-title {
+      font-size: 1.5rem;
+    }
+
+    .empty-state-description {
+      font-size: 1rem;
+    }
+  }
+</style>
