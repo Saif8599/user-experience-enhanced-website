@@ -6,10 +6,13 @@
       <div class="stekje-media">
         <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto }}" alt="{{ stekje.naam }}">
         <div class="stekje-actions">
+          {% render 'partials/notification.liquid' %}
+
           <form
             action="/stekje/{{ stekje.id }}"
             method="POST"
-            class="like-form js-form">
+            class="like-form js-form"
+            onsubmit="handleLike(event, '✅ Stekje geliked!')">
             <input
               type="hidden"
               name="stekjeid"
@@ -19,16 +22,18 @@
               <span class="loader js-loader" style="display: none;"></span>
             </button>
           </form>
+
           <form
             action="/stekje/{{ stekje.id }}/unlike"
             method="POST"
-            class="unlike-form js-form">
+            class="unlike-form js-form"
+            onsubmit="handleLike(event, '✅ Stekje unliked!')">
             <input
               type="hidden"
               name="stekjeid"
               value="{{ stekje.id }}">
             <button type="submit" class="unlike-button js-submit-button">
-              <span class="js-button-text">Unike</span>
+              <span class="js-button-text">Unlike</span>
               <span class="loader js-loader" style="display: none;"></span>
             </button>
           </form>
@@ -81,6 +86,7 @@
           <p>{{ stekje.giftig }}</p>
         </div>
       </div>
+
     </div>
   {% else %}
     {% include '../partials/empty-stekje-card.liquid' %}
@@ -88,20 +94,50 @@
 </div>
 
 <script>
+  // Loader tonen en verbergen
   document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.js-form').forEach(form => {
     form.addEventListener('submit', function(e) {
       const button = this.querySelector('.js-submit-button');
       const buttonText = this.querySelector('.js-button-text');
       const loader = this.querySelector('.js-loader');
-
+  
+      // Toon loader en verberg tekst
       button.disabled = true;
-
       if (buttonText) buttonText.style.display = 'none';
       if (loader) loader.style.display = 'inline-block';
+      
+      // Verberg loader na 3 seconden
+      setTimeout(function() {
+        button.disabled = false;
+        if (buttonText) buttonText.style.display = 'inline-block';
+        if (loader) loader.style.display = 'none';
+      }, 500);
     });
   });
   });
+      
+  // Functie om like/unlike acties af te handelen
+  async function handleLike(event, message) {
+
+  event.preventDefault(); // dit event zorgt ervoor dat het pagina niet opnieuw reload
+
+  const button = event.target.querySelector('button');
+  
+  button.disabled = true;
+  
+  try {
+    await fetch(event.target.action, {
+      method: 'POST',
+      body: new URLSearchParams(new FormData(event.target)) // Zet formulierdata om naar URL parameters
+    });
+    showNotification(message);
+  } catch {
+    showNotification('Actie mislukt', true);
+  }
+  
+  button.disabled = false;
+  }
 </script>
 
 <style>
