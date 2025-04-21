@@ -47,7 +47,9 @@ app.post("/", async function (request, response) {
 // GET route voor het ophalen van alle stekjes
 app.get("/stekjes", async function (request, response) {
   // Haal alle stekjes op vanuit de WHOIS API door een fetch-verzoek te sturen naar de eindpoint `/bib_stekjes`
-  const stekjesResponse = await fetch(`${API_BASE_URL}/bib_stekjes`);
+  const stekjesResponse = await fetch(
+    `${API_BASE_URL}/bib_stekjes?fields=*,foto.id,foto.width,foto.height`
+  );
 
   // Zet het response-object om naar JSON-formaat, zodat we de data kunnen gebruiken
   const stekjesResponseResponseJSON = await stekjesResponse.json();
@@ -64,7 +66,7 @@ app.get("/stekje/:id", async function (request, response) {
   // Haal een specifiek stekje op vanuit de WHOIS API door een fetch-verzoek te sturen naar de eindpoint `/bib_stekjes/{id}`
   // Het ID wordt uit de URL gehaald via `request.params.id`
   const stekjesResponse = await fetch(
-    `${API_BASE_URL}/bib_stekjes/${request.params.id}`
+    `${API_BASE_URL}/bib_stekjes/${request.params.id}?fields=*,foto.id,foto.width,foto.height`
   );
 
   // Zet het response-object om naar JSON-formaat, zodat we de data kunnen gebruiken

@@ -4,7 +4,11 @@
 
     <div class="stekje-container">
       <div class="stekje-media">
-        <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto }}" alt="{{ stekje.naam }}">
+        <img
+          src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}"
+          width="{{ stekje.foto.width }}"
+          height="{{ stekje.foto.height }}"
+          alt="{{ stekje.naam }}">
         <div class="stekje-actions">
           {% render 'partials/notification.liquid' %}
 
@@ -119,9 +123,9 @@
       
   // Functie om like/unlike acties af te handelen
   async function handleLike(event, message) {
-
+  
   event.preventDefault(); // dit event zorgt ervoor dat het pagina niet opnieuw reload
-
+  
   const button = event.target.querySelector('button');
   
   button.disabled = true;
@@ -247,10 +251,6 @@
     .stekje-media {
       flex: 0 0 45%;
       align-self: flex-start;
-    }
-
-    .stekje-media img {
-      max-height: none;
     }
 
     .stekje-info {

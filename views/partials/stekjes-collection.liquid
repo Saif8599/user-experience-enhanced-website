@@ -8,7 +8,9 @@
         <h3 class="stekje-item-title">{{ stekje.naam }}</h3>
         <div class="stekje-item-bg">
           <img
-            src="https://fdnd-agency.directus.app/assets/{{ stekje.foto }}"
+            src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}"
+            width="{{ stekje.foto.width }}"
+            height="{{ stekje.foto.height }}"
             alt="{{ stekje.naam }}"
             loading="lazy">
         </div>
