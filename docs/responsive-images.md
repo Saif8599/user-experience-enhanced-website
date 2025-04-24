@@ -9,11 +9,13 @@ Je bent vast wel eens deze twee punten tegengekomen in de lighthouse test:
 
 ⚠️ [Properly size images](https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images)
 
+Door gebruik te maken van responsive images kan je dit voorkomen.
+
 ## Wat zijn responsive images
 
 Responsive images helpen de browser om het beste plaatje te kiezen voor de eindgebruiker. Daarmee houdt de browser rekening met de internet snelheid, het device en de grootte van het scherm. Wij geven de browser een aantal opties en de browser kiest dan zelf wat de beste is met alle variabelen voor de eindgebruiker. We hebben hiervoor drie opties: `srcset`, `picture` in html en `image-set` in CSS (voor backgrounds).
 
-Dit zorgt voor een betere user experience en performance zie [nummer 21 op de performance checklist](https://www.smashingmagazine.com/2021/01/front-end-performance-2021-free-pdf-checklist/#assets-optimizations).
+Dit zorgt voor een betere user experience en performance zie [#21 Do we use adaptive media loading and client hints](https://www.smashingmagazine.com/2021/01/front-end-performance-2021-free-pdf-checklist/#assets-optimizations) van de Frontend Performance Checklist.
 
 ### Picture
 
@@ -36,6 +38,7 @@ We kunnen in CSS backgrounds ook responsive images gebruiken dmv image-set. Hier
 ### 👉 Opdracht: Formaten en browserondersteuning
 - Ga op zoek naar de verschillende image formats ​die we kunnen gebruiken op het web​
 - Schrijf ze op het bord, bijv .jpg​ en hoe goed ze ondersteund worden door browsers​
+
 
 ## Hoe gebruiken we responsive images
 
@@ -61,7 +64,7 @@ After:
 
 👉 Je kunt met javascript en de [`.currentSrc`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/currentSrc) de source van het gekozen plaatje console.loggen of nog beter een paragraaf neerzetten en de `textContent` veranderen, zodat je het makkelijker ziet.
 
-###  👉 Opdracht: Resolution switching
+### 👉 Opdracht: Resolution switching
 
 Je kunt met het media attribuut in het picture element verschillende sizes van dezelfde afbeelding laten tonen. Een extra laag van progressive enhancement. Dit gaat verder dan alleen de width media query, je kunt de hele lijst aan [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) gebruiken. Daarnaast kun je ook rekening houden met de hoeveelheid DPR van de eindgebruiker. 
 
@@ -97,7 +100,16 @@ We hebben nu voornamelijk gekeken naar dezelfde afbeelding serveren op verschill
 🛠️ Maak een derde demo waar je art direction toepast. 
 
 
-### Opdracht: Responsive Images met de Directus API in je project
+
+### Bronnen
+
+- [Do we use adaptive media loading and client hints?- Frontend Performance Checklist #21](https://www.smashingmagazine.com/2021/01/front-end-performance-2021-free-pdf-checklist/#21)
+- [MDN: Using responsive images in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images)
+- [Responsive Images 101, Part 1: Definitions](https://cloudfour.com/thinks/responsive-images-101-definitions/)
+- [Responsive Images the Simple Way](https://cloudfour.com/thinks/responsive-images-the-simple-way/)
+
+
+## Responsive Images met de Directus API in je project
 
 Je kunt met de Directus API verschillende bestandsformaten en groottes opvragen om met responsive images aan de slag te gaan. Waarschijnlijk heb je nu zoiets als:
 
@@ -115,6 +127,7 @@ Dat kun je nu gaan upgraden, met de info uit de demo's die je hierboven hebt gem
 </picture>
 ```
 
+### Opdracht
 Lees in de documentatie van Directus hoe je de width, height, quality en meer kan opvragen. Zie de workshop [layout-shift](https://github.com/fdnd-task/user-experience-enhanced-website/blob/main/docs/layout-shift.md) hoe je dat ook alweer doet in liquid. 
 
 🛠️ Ga in je project aan de slag met responsive images om de user experience te verbeteren op een performant en PE manier.
@@ -127,8 +140,5 @@ Lees in de documentatie van Directus hoe je de width, height, quality en meer ka
 
 ### Bronnen
 
-- [Do we use adaptive media loading and client hints?- Frontend Performance Checklist #21](https://www.smashingmagazine.com/2021/01/front-end-performance-2021-free-pdf-checklist/#21)
-- [Using responsive images in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images)
-- [Responsive Images 101, Part 1: Definitions](https://cloudfour.com/thinks/responsive-images-101-definitions/)
 - [Image optimization in Directus](https://learndirectus.com/image-optimization-in-directus/)
 - [Transform files with Directus](https://directus.io/docs/guides/files/transform)
