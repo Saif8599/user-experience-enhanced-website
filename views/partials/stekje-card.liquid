@@ -4,11 +4,20 @@
 
     <div class="stekje-container">
       <div class="stekje-media">
-        <img
-          src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}"
-          width="{{ stekje.foto.width }}"
-          height="{{ stekje.foto.height }}"
-          alt="{{ stekje.naam }}">
+        <picture>
+            <!-- Format voor betere compressie -->
+          <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=avif&width=800">
+          <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=webp&width=800">
+
+            <!-- Fallback voor browsers die niet ondersteunen -->
+          <img
+            src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}"
+            width="{{ stekje.foto.width }}"
+            height="{{ stekje.foto.height }}"
+            alt="{{ stekje.naam }}"
+            loading="lazy"
+            style="background: #969494;">
+        </picture>
         <div class="stekje-actions">
           {% render 'partials/notification.liquid' %}
 

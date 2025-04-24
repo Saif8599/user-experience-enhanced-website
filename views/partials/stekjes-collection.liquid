@@ -7,12 +7,19 @@
       <article class="stekje-item">
         <h3 class="stekje-item-title">{{ stekje.naam }}</h3>
         <div class="stekje-item-bg">
-          <img
-            src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}"
-            width="{{ stekje.foto.width }}"
-            height="{{ stekje.foto.height }}"
-            alt="{{ stekje.naam }}"
-            loading="lazy">
+          <picture>
+            <source
+              srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=webp&width=800"
+              type="image/webp"
+              loading="lazy">
+            <img
+              src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?width=800"
+              width="{{ stekje.foto.width }}"
+              height="{{ stekje.foto.height }}"
+              alt="{{ stekje.naam }}"
+              loading="lazy"
+              style="background: #969494;">
+          </picture>
         </div>
         <a href="stekje/{{ stekje.id }}" class="stekje-item-link">Bekijk stekje</a>
       </article>
