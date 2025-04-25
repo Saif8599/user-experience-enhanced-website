@@ -8,10 +8,21 @@
         <h3 class="stekje-item-title">{{ stekje.naam }}</h3>
         <div class="stekje-item-bg">
           <picture>
+              {% comment %} Resolution switching {% endcomment %}
+            <source
+              media="(max-width: 500px)"
+              srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=avif&width=400"
+              type="image/avif"
+              loading="lazy">
+
+
+              {% comment %} Webp format {% endcomment %}
             <source
               srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=webp&width=800"
               type="image/webp"
               loading="lazy">
+
+              {% comment %} Fallback {% endcomment %}
             <img
               src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?width=800"
               width="{{ stekje.foto.width }}"
@@ -59,8 +70,7 @@
     align-items: center;
     padding-bottom: 1rem;
     box-shadow: 0 0 10px black;
-    transition: transform 0.3s ease
-    , box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 
 
      &:hover {
