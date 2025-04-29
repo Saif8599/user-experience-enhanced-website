@@ -1,0 +1,51 @@
+{% comment %} Sekelton partial {% endcomment %}
+<div class="stekje-item is-loading">
+  <div class="stekje-item-title skeleton-shimmer"></div>
+  <div class="stekje-item-bg skeleton-shimmer"></div>
+  <div class="stekje-item-link skeleton-shimmer"></div>
+</div>
+
+<style>
+  .stekje-item.is-loading {
+    width: 100%;
+    pointer-events: none;
+
+    .stekje-item-title,
+    .stekje-item-bg,
+    .stekje-item-link {
+      background: #eee;
+      background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+      background-size: 200% 100%;
+      border-radius: 5px;
+      animation: 1.5s shine linear infinite;
+    }
+
+    .stekje-item-title {
+      height: 30px;
+      width: 70%;
+    }
+
+    .stekje-item-bg {
+      height: 170px;
+      width: 100%;
+      max-width: 600px;
+      margin-top: 60px;
+      border-radius: 5px;
+
+      @media (min-width: 800px) {
+        height: 80%;
+      }
+    }
+  }
+
+  .stekje-item-link {
+    height: 30px;
+    width: 120px;
+  }
+
+  @keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }
+</style>
