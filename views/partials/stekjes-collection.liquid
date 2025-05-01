@@ -1,13 +1,17 @@
 <section class="stekjes-collection">
   <h2 class="stekjes-collection-title">Vind jouw favoriet in onze collectie geliefde stekjes</h2>
-
   <div class="stekjes-collection-grid">
 
+    <!-- Skeleton Loader (Partial state) -->
+  <div class="stekjes-skeleton-loader" style="display: block;">
+      {% render 'partials/stekje-item-skeleton.liquid' %}
+  </div>
+  
+    <!-- Content (Ideal state) -->
+  <div class="stekjes-content" style="display: none;">
     {% for stekje in stekjes %}
       {% include 'partials/stekje-item.liquid' %}
     {% endfor %}
-
-    {% render 'partials/stekje-item-skeleton.liquid' %}
   </div>
 </section>
 
@@ -56,3 +60,12 @@
     }
   }
 </style>
+
+<script>
+  window.onload = function() {
+    setTimeout(function() {
+      document.querySelector('.stekjes-skeleton-loader').style.display = 'none';
+      document.querySelector('.stekjes-content').style.display = 'block';
+    }, 2000); 
+  };
+</script>
