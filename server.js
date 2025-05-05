@@ -135,6 +135,23 @@ app.post("/stekje/:id/unlike", async function (request, response) {
   response.redirect(303, `/stekje/${stekjeId}`);
 });
 
+// GET route voor alle gelikete stekjes
+app.get("/favorieten", async function (request, response) {
+  // Haal alle gelikete stekjes op vanuit de WHOIS API door een fetch-verzoek te sturen naar de eindpoint `/bib_users` van userID 1
+  const likedStekjesResponse = await fetch(
+    `${API_BASE_URL}/bib_users/${userId}/?fields=id,name,liked_stekjes.bib_stekjes_id.*,liked_stekjes.bib_stekjes_id.foto.*`
+  );
+
+  // Zet het response-object om naar JSON-formaat, zodat we de data kunnen gebruiken
+  const likedStekjesResponseResponseJSON = await likedStekjesResponse.json();
+
+  // Render de `stekjes.liquid` template uit de views-map
+  // Geef de opgehaalde data mee als een variabele genaamd `stekjes`, zodat deze in de template gebruikt kan worden
+  response.render("likedStekjes.liquid", {
+    likedStekjes: likedStekjesResponseResponseJSON.data,
+  });
+});
+
 // Geen matching route request
 app.use((req, res) => {
   res.status(404).render("404.liquid");
