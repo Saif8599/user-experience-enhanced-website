@@ -1,0 +1,17 @@
+{% render 'partials/head.liquid'
+  , title: 'Bieb in Bloei' %}
+
+{% include 'partials/navbar.liquid'
+  , title: 'Favorieten' %}
+
+<section class="container">
+  <h2>Mijn favoriete stekjes</h2>
+
+  {% if likedStekjes %}
+
+  {% else %}
+    {% include 'partials/empty-stekje-card.liquid' %}
+  {% endif %}
+
+</section>
+{% render 'partials/foot.liquid' %}
