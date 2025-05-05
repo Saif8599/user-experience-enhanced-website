@@ -1,17 +1,17 @@
 <section class="stekjes-collection">
   <h2 class="stekjes-collection-title">Vind jouw favoriet in onze collectie geliefde stekjes</h2>
   <div class="stekjes-collection-grid">
-
     <!-- Skeleton Loader (Partial state) -->
-  <div class="stekjes-skeleton-loader" style="display: block;">
+    <div class="stekjes-skeleton-loader" style="display: block;">
       {% render 'partials/stekje-item-skeleton.liquid' %}
-  </div>
-  
+    </div>
+
     <!-- Content (Ideal state) -->
-  <div class="stekjes-content" style="display: none;">
-    {% for stekje in stekjes %}
-      {% include 'partials/stekje-item.liquid' %}
-    {% endfor %}
+    <div class="stekjes-content" style="display: none;">
+      {% for stekje in stekjes %}
+        {% include 'partials/stekje-item.liquid' %}
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -27,45 +27,43 @@
     font-size: 1.8rem;
     margin-bottom: 2rem;
     color: #2a5c45;
+
+    @media (min-width: 600px) {
+      font-size: 2rem;
+    }
   }
 
   .stekjes-collection-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
-  }
 
-  @media (min-width: 600px) {
-    .stekjes-collection-grid {
+    @media (min-width: 600px) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .stekjes-collection-title {
-      font-size: 2rem;
-    }
-  }
-
-  @media (min-width: 800px) {
-    .stekje-item {
-      height: 600px;
-    }
-    .stekjes-collection-grid {
+    @media (min-width: 800px) {
       grid-template-columns: repeat(3, 1fr);
     }
-  }
 
-  @media (min-width: 900px) {
-    .stekjes-collection-grid {
+    @media (min-width: 900px) {
       grid-template-columns: repeat(4, 1fr);
     }
   }
+
+  .stekje-item {
+  @media (min-width: 800px) {
+    height: 600px;
+  }
+}
 </style>
 
 <script>
+  // Verwijder loader en vervang door content na 2 seconden bij laden
   window.onload = function() {
     setTimeout(function() {
       document.querySelector('.stekjes-skeleton-loader').style.display = 'none';
-      document.querySelector('.stekjes-content').style.display = 'block';
+      document.querySelector('.stekjes-content').style.display = 'contents'; // Laat items direct in de grid vallen
     }, 2000); 
   };
 </script>
