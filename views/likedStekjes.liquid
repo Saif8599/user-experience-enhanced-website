@@ -4,14 +4,108 @@
 {% include 'partials/navbar.liquid'
   , title: 'Favorieten' %}
 
-<section class="container">
-  <h2>Mijn favoriete stekjes</h2>
+<section class="stekjes-collection">
+  <h2 class="stekjes-collection-title">Mijn favoriete stekjes</h2>
 
   {% if likedStekjes %}
+    <div class="stekjes-collection-grid">
+      {% comment %} Elke gelikete stekje ophalen via liked_stekjes array {% endcomment %}
+      {% for stekje in likedStekjes.liked_stekjes %}
+        <article class="stekje-item">
+          <form
+            method="post"
+            action="/favorieten/verwijder"
+            class="stekje-item-close-form">
+            <input
+              type="hidden"
+              name="id"
+              value="{{ stekje.bib_stekjes_id.id }}">
+            <button type="submit" class="stekje-item-close">x</button>
+          </form>
+          <h3 class="stekje-item-title">{{ stekje.bib_stekjes_id.naam }}</h3>
+          <div class="stekje-item-bg">
+            <picture>
+                {% comment %} Resolution switching {% endcomment %}
+              <source
+                media="(max-width: 500px)"
+                srcset="https://fdnd-agency.directus.app/assets/{{ stekje.bib_stekjes_id.foto.id }}?format=avif&width=400"
+                type="image/avif"
+                loading="lazy">
 
+                {% comment %} Webp format {% endcomment %}
+              <source
+                srcset="https://fdnd-agency.directus.app/assets/{{ stekje.bib_stekjes_id.foto.id }}?format=webp&width=800"
+                type="image/webp"
+                loading="lazy">
+
+                {% comment %} Fallback {% endcomment %}
+              <img
+                src="https://fdnd-agency.directus.app/assets/{{ stekje.bib_stekjes_id.foto.id }}?width=800"
+                width="{{ stekje.bib_stekjes_id.foto.width }}"
+                height="{{ stekje.bib_stekjes_id.foto.height }}"
+                alt="{{ stekje.naam }}"
+                loading="lazy"
+                style="background: #969494;">
+            </picture>
+          </div>
+          <a href="stekje/{{ stekje.bib_stekjes_id.id }}" class="stekje-item-link">Bekijk stekje</a>
+        </article>
+      {% endfor %}
+    </div>
   {% else %}
     {% include 'partials/empty-stekje-card.liquid' %}
   {% endif %}
 
 </section>
 {% render 'partials/foot.liquid' %}
+
+<style>
+  .stekje-item {
+    height: 300px;
+    position: relative;
+    /* Zorgt ervoor dat children buiten de box kunnen vallen */
+    overflow: visible;
+
+    @media (min-width: 800px) {
+      height: 400px;
+    }
+  }
+
+  .stekje-item-close-form {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 10;
+  }
+
+  .stekje-item-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 1;
+
+    /* Reset button */
+    padding: 0;
+    margin: 0;
+
+     &:hover {
+      background-color: rgb(143, 0, 0);
+    }
+  }
+
+  .stekje-item:hover .stekje-item-close {
+    opacity: 1;
+  }
+</style>
