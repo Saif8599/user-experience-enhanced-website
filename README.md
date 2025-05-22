@@ -60,6 +60,10 @@ Tijdens deze sprint was mijn focus op het redesignen van de stekjes pagina. Bieb
 
 ![image](https://github.com/user-attachments/assets/70cfb0df-fe5d-42c5-9b65-0398d2323f57)
 
+
+https://github.com/user-attachments/assets/53bbfad7-4ab9-4730-9a76-38e717e592dc
+
+
 ### Performance
 Om de performance te verbeteren heb ik gebruik gemaakt van responsive images en formats. Dit heb ik toegepast bij de images van de stekjes. Door een vaste width en format te geven zorgt dit voor snellere laadsnelheden, betere gebruikerservaring.
 
