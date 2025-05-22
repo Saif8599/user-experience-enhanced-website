@@ -68,7 +68,7 @@ https://github.com/user-attachments/assets/53bbfad7-4ab9-4730-9a76-38e717e592dc
 Om de performance te verbeteren heb ik gebruik gemaakt van responsive images en formats. Dit heb ik toegepast bij de images van de stekjes. Door een vaste width/height en formats te geven zorgt dit voor snellere laadsnelheden en voorkom layout shifts. 
 
 
-Op de Img element gebruik ik de `loadin loading="lazy"`. Dit zorgt ervoor dat de afbeeldingen pas worden ingeladen wanneer ze in beeld komen. 
+Op de Img element gebruik ik de `loading="lazy"`. Dit zorgt ervoor dat de afbeeldingen pas worden ingeladen wanneer ze in beeld komen. 
 ```HTML
 <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}" width="{{ stekje.foto.width }}" height="{{ stekje.foto.height }}" alt="{{ stekje.naam }}" loading="lazy" style="background: #969494;">
 ```
