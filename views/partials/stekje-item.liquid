@@ -12,13 +12,13 @@
 
         {% comment %} Webp format {% endcomment %}
       <source
-        srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=webp&width=800"
+        srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=webp&width=400&height=400"
         type="image/webp"
         loading="lazy">
 
         {% comment %} Fallback {% endcomment %}
       <img
-        src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?width=800"
+        src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?width=400&height=400"
         width="{{ stekje.foto.width }}"
         height="{{ stekje.foto.height }}"
         alt="{{ stekje.naam }}"
