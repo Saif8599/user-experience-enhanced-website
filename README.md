@@ -65,12 +65,16 @@ https://github.com/user-attachments/assets/53bbfad7-4ab9-4730-9a76-38e717e592dc
 
 
 ### Perceived performance
-Om de performance te verbeteren heb ik gebruik gemaakt van responsive images en formats. Dit heb ik toegepast bij de images van de stekjes. Door een vaste width/height en formats te geven zorgt dit voor snellere laadsnelheden, betere gebruikerservaring em layout shifts. 
+Om de performance te verbeteren heb ik gebruik gemaakt van responsive images en formats. Dit heb ik toegepast bij de images van de stekjes. Door een vaste width/height en formats te geven zorgt dit voor snellere laadsnelheden en voorkom layout shifts. 
+
 
 Op de Img element gebruik ik de `loadin loading="lazy"`. Dit zorgt ervoor dat de afbeeldingen pas worden ingeladen wanneer ze in beeld komen. 
 ```HTML
 <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}" width="{{ stekje.foto.width }}" height="{{ stekje.foto.height }}" alt="{{ stekje.naam }}" loading="lazy" style="background: #969494;">
 ```
+Bij het laden van afbeeldingen wordt een grijze achtergrond getoond als placeholder. Dit geeft directe feedback dat de inhoud snel verschijnt, waardoor wachten minder lang voelt.
+
+https://github.com/user-attachments/assets/8aba0d95-df47-4087-a5cd-933abe87c4b4
 
 ### Layout shift
 Images hebben in de srcset een vaste width en height. Hierdoor ontstaat er geen layout shifts. 
