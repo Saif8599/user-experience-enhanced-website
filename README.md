@@ -31,9 +31,12 @@ In dit project heb ik gebruik gemaakt van Node.js en Express om een webserver te
 ### Ontwerpkeuzes
 Tijdens deze sprint was mijn focus op het redesignen van de stekjes pagina. Bieb in bloei staat voor groen, dit kan je ook terug zien bij de stekjes.
 
+
 - **Kleur**: Groen als hoofdkleur om een duurzaam leefruimte te creëren.
 - **Typografie**: Het Poppins lettertype is zowel leesbaar in kleine lettertypen als in grotere en het geeft moderne en vriendelijke uitstraling. 
 - **UI**: Er is gebruik gemaakt van hover states, dit om het gebruiksvriendelijk te maken.
+  
+![image](https://github.com/user-attachments/assets/a54eb01f-a182-4443-bec2-1ecb997273f7)
 
 ![image](https://github.com/user-attachments/assets/d5e8e008-0e6a-4fbe-abf3-a313dce57e44)
 ![image](https://github.com/user-attachments/assets/a15ed21c-a0a7-4de5-8c20-0c749b1a56da)
@@ -99,6 +102,7 @@ Progressive enhancement is een strategie die begint met een basis die voor ieder
    - Open een browser en ga naar: `http://localhost:8000`
 ## Bronnen
 - [FDND Agency](https://github.com/fdnd-agency/biebinbloei.nl/wiki/Design-Challenge)
+- [Figma design](https://www.figma.com/design/LzqERL2DPlqiWDZx4Qn86d/Bieb---Bloei?node-id=20-2122&t=p28pU0kyZk1GJcBy-1)
 ## Licentie
 
 This project is licensed under the terms of the [MIT license](./LICENSE).
