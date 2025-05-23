@@ -38,7 +38,8 @@ Tijdens deze sprint was mijn focus op het redesignen van de stekjes pagina. Bieb
   
 ![image](https://github.com/user-attachments/assets/a54eb01f-a182-4443-bec2-1ecb997273f7)
 
-![image](https://github.com/user-attachments/assets/d5e8e008-0e6a-4fbe-abf3-a313dce57e44)
+https://github.com/user-attachments/assets/c38d9dcb-2ba3-47ca-80d8-b20b13e33315
+
 ![image](https://github.com/user-attachments/assets/a15ed21c-a0a7-4de5-8c20-0c749b1a56da)
 
 
