@@ -120,12 +120,12 @@
       if (buttonText) buttonText.style.display = 'none';
       if (loader) loader.style.display = 'inline-block';
       
-      // Verberg loader na 3 seconden
+      // Verberg loader na 1 seconden
       setTimeout(function() {
         button.disabled = false;
         if (buttonText) buttonText.style.display = 'inline-block';
         if (loader) loader.style.display = 'none';
-      }, 500);
+      }, 1000);
     });
   });
   });
@@ -295,7 +295,7 @@
     align-self: center;
     width: 16px;
     height: 16px;
-    animation: spin 1s linear infinite;
+    animation: spin 0.1s linear infinite;
     display: inline-block;
     vertical-align: middle;
     margin-left: 8px;
