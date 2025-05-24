@@ -38,7 +38,8 @@ Tijdens deze sprint was mijn focus op het redesignen van de stekjes pagina. Bieb
   
 ![image](https://github.com/user-attachments/assets/a54eb01f-a182-4443-bec2-1ecb997273f7)
 
-![image](https://github.com/user-attachments/assets/d5e8e008-0e6a-4fbe-abf3-a313dce57e44)
+https://github.com/user-attachments/assets/c38d9dcb-2ba3-47ca-80d8-b20b13e33315
+
 ![image](https://github.com/user-attachments/assets/a15ed21c-a0a7-4de5-8c20-0c749b1a56da)
 
 
@@ -64,8 +65,43 @@ Tijdens deze sprint was mijn focus op het redesignen van de stekjes pagina. Bieb
 https://github.com/user-attachments/assets/53bbfad7-4ab9-4730-9a76-38e717e592dc
 
 
-### Performance
-Om de performance te verbeteren heb ik gebruik gemaakt van responsive images en formats. Dit heb ik toegepast bij de images van de stekjes. Door een vaste width en format te geven zorgt dit voor snellere laadsnelheden, betere gebruikerservaring.
+### Perceived performance
+Om de performance te verbeteren heb ik gebruik gemaakt van responsive images en formats. Dit heb ik toegepast bij de images van de stekjes. Door een vaste width/height en formats te geven zorgt dit voor snellere laadsnelheden en voorkom layout shifts. 
+
+
+Op de Img element gebruik ik de `loading="lazy"`. Dit zorgt ervoor dat de afbeeldingen pas worden ingeladen wanneer ze in beeld komen. 
+```HTML
+<img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}" width="{{ stekje.foto.width }}" height="{{ stekje.foto.height }}" alt="{{ stekje.naam }}" loading="lazy" style="background: #969494;">
+```
+Bij het laden van afbeeldingen wordt een grijze achtergrond getoond als placeholder. Dit geeft directe feedback dat de inhoud snel verschijnt, waardoor wachten minder lang voelt.
+
+https://github.com/user-attachments/assets/8aba0d95-df47-4087-a5cd-933abe87c4b4
+
+### Layout shift
+Images hebben in de srcset een vaste width en height. Hierdoor ontstaat er geen layout shifts. 
+
+```HTML
+        <picture>
+            <!-- Format voor betere compressie -->
+          <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=avif?width=400&height=400">
+          <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=webp?width=400&height=400">
+
+
+            <!-- Fallback voor browsers die niet ondersteunen -->
+          <img
+            src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}"
+            width="{{ stekje.foto.width }}"
+            height="{{ stekje.foto.height }}"
+            alt="{{ stekje.naam }}"
+            loading="lazy"
+            style="background: #969494;">
+        </picture>
+```
+
+### Responsive images
+In de picture element gebruik ik source tags met daarin de srcset attribute. Daarbinnen zit `https://fdnd-agency.directus.app/assets/` + dynamische data.
+
+Voor Images uit Directus API gebruik ik `?format=avif?width=400&height=400` achter het gekozen data.. 
 
 ### View transitions
 Om de performance voor de gebruiker te verbeteren heb ik view transitions toegepast.
