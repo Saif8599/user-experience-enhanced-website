@@ -117,7 +117,6 @@ app.post("/stekje/:id/unlike", async function (request, response) {
 
   console.log("Ontvangen data van API:", data);
 
-  // Controleer of er een like is van de ingelogde gebruiker
   // Pak de eerste gevonden like (1 like per klik verwijderen)
   const likeId = data.data[0].id;
 
