@@ -9,7 +9,7 @@ In de wrap-up ga je de Sprint Review voorbereiden. Wat ga je aan de oprachtgever
 ### Sprint review voorbereiden
 Eerst ga je met je team met studenten die dezelfde opdracht hebben de Sprint Review voorbereiden. Ga met elkaar aan tafel zitten. Laat eerst aan elkaar zien wat je hebt gemaakt deze sprint en aan welke vragen of feedback van de opdachtgever je hebt gewerkt. Bedenk daarna hoe jullie dit gaan presenteren, en bedenk een volgorde van onderwerpen.
 
-Het proces van briefing en sprint reviews gaan over communiceren met de opdrachtgever (en je team). 
+Het proces van briefing en sprint reviews gaat over communiceren met de opdrachtgever (en je team). 
 
 <!--
 Laat zien hoe je een vraag van de opdrachtgever vertaalt naar een ontwerp vraag. Houd bij hoe je hieraan werkt in een issue en presenteer in de README je ontwerpkeuzes van het eindresultaat. Maak tot slot duidelijk wat de opdrachtgever hiervan vindt.
